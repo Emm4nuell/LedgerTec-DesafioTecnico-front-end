@@ -1,4 +1,4 @@
-import { SingInForm } from "../components/SingInForm";
+import { SingInForm } from "../hooks/SingInForm";
 import ledgertecImage from "../assets/ledgertectec.png";
 
 export default function SingIn() {

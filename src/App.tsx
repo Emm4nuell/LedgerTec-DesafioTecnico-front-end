@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import SingIn from "./pages/SingIn";
 import PrivateRouter from "./api/PrivateRouter";
-import TableFile from "./components/TableFile";
+import TableFile from "./hooks/TableFile";
 
 function App() {
   return (

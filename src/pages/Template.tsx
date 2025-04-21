@@ -1,5 +1,5 @@
-import Header from "@/components/Header";
-import { InputFile } from "@/components/InputFile";
+import Header from "@/hooks/Header";
+import { InputFile } from "@/hooks/InputFile";
 import { Outlet } from "react-router-dom";
 
 export default function Template() {

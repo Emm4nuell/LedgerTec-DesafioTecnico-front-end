@@ -7,10 +7,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
+} from "../components/ui/table";
 import api from "../api/axiosInstance";
 import { IFile } from "../types/IFile";
-import { Button } from "./ui/button";
+import { Button } from "../components/ui/button";
 
 export default function TableFile() {
   const [files, setFiles] = useState<IFile[]>([]);
