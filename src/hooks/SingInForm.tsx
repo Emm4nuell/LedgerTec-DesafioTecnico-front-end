@@ -2,8 +2,8 @@ import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Button } from "../components/ui/button";
 import api from "../api/axiosInstance";
-import { FormEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { defaultSignIn, SingIn, singInValidationSchema } from "@/types/ISingIn"; // Importando a validação
 
 import { Formik, Field, Form, ErrorMessage } from "formik"; // Importando Formik
@@ -91,9 +91,9 @@ export function SingInForm() {
         </div>
         <div className="flex justify-center items-center text-center text-sm gap-2">
           Não tem uma conta?
-          <a href="#" className="underline underline-offset-4">
+          <Link to="/cadastrar" className="underline underline-offset-4">
             Cadastre-se
-          </a>
+          </Link>
         </div>
       </Form>
     </Formik>
