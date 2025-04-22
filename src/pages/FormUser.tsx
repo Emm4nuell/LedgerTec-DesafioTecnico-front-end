@@ -2,23 +2,32 @@ import api from "@/api/axiosInstance";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { defaultMessageError, MessageError } from "@/types/IMessageError";
 import { defaultUser, User, userInValidationSchema } from "@/types/IUser";
 import { Formik, Field, Form, ErrorMessage } from "formik"; // Importando Formik
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function FormUser() {
   const [user, setUser] = useState<User>(defaultUser);
-  const [messageError, setMessageError] = useState();
+  const [messageError, setMessageError] =
+    useState<MessageError>(defaultMessageError);
+  const navigate = useNavigate();
 
   const hanlderSingIn = async (values: User) => {
     await api
       .post("user", values)
       .then(() => {
         console.log("Usuario Cadastrado com sucesso.");
+        navigate("/login");
       })
       .catch((err) => {
         console.log(err.response.data.message);
-        setMessageError(err.response.data.message);
+        setMessageError({
+          ...messageError,
+          message: err.response.data.message,
+          status: true,
+        });
       });
   };
   return (
@@ -47,6 +56,9 @@ export function FormUser() {
                   placeholder="m@example.com"
                   required
                 />
+                <span className="text-red-500">
+                  {messageError.status ? messageError.message : ""}
+                </span>
                 <ErrorMessage
                   name="username"
                   component="div"

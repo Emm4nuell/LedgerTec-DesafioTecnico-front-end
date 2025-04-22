@@ -5,7 +5,6 @@ import api from "../api/axiosInstance";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { defaultSignIn, SingIn, singInValidationSchema } from "@/types/ISingIn"; // Importando a validação
-
 import { Formik, Field, Form, ErrorMessage } from "formik"; // Importando Formik
 
 export function SingInForm() {
@@ -21,8 +20,8 @@ export function SingInForm() {
         navigator("/home");
       })
       .catch((err) => {
-        console.log(err);
         localStorage.removeItem("token");
+        alert(err.response.data.message);
       });
   };
 
